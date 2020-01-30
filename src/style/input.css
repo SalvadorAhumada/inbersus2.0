@@ -1,0 +1,29 @@
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 20px;
+  font-weight: 300;
+  width: 150px;
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+}
+
+button {
+  padding: 15px 25px;
+  border-radius: 100px;
+  border: none;
+  font-weight: bolder;
+  background: #4545ff;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-family: "Rubik", sans-serif;
+  transition: 0.5s;
+}
+
+button:hover {
+  background: #3434c3;
+  transition: 0.5s;
+}
