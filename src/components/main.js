@@ -13,6 +13,7 @@ const mainPage = () => {
       <InputDate />
       <p>3.-Choose the ROI</p>
       {/* <InputROI /> */}
+      <button>Make it rain</button>
     </section>
   );
 };

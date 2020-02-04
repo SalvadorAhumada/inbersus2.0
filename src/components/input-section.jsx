@@ -24,7 +24,6 @@ class inputSection extends Component {
           thousandSeparator={true}
           prefix={"$"}
         />
-        <button>Make it rain</button>
       </React.Fragment>
     );
   }
