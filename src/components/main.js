@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "../style/general.css";
 import InputSection from "./input-section";
 import InputDate from "./input-date";
 
-const mainPage = () => {
+const MainPage = () => {
+  const [setClass, setClassState] = useState({
+    isAdded: false
+  });
+
+  const addClassHandler = () => {
+    setClassState({
+      isAdded: true
+    });
+  }
+
   return (
-    <section className="center text-big margin-0">
+    <section className={"center text-big margin-0 animated " + (setClass.isAdded ? 'fadeOutUp' : 'fadeIn')}>
       <h1 className="margin-0">INBERSUS</h1>
       <p>1.-Choose how much you want to invest.</p>
       <InputSection />
@@ -13,9 +23,9 @@ const mainPage = () => {
       <InputDate />
       <p>3.-Choose the ROI</p>
       {/* <InputROI /> */}
-      <button>Make it rain</button>
+      <button onClick={addClassHandler}>Make it rain</button>
     </section>
   );
 };
 
-export default mainPage;
+export default MainPage;
