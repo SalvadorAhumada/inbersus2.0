@@ -7,14 +7,9 @@ class inputSection extends Component {
     quantity: 0
   };
 
-  handleChange = e => {
-    if (isNaN(e.target.value)) {
-      return;
-    }
-    this.setState({
-      quantity: e.target.value
-    });
-  };
+  sendData = () => {
+    this.props.parentCallback({ amount: this.state.quantity });
+  }
 
   render() {
     return (
@@ -23,6 +18,7 @@ class inputSection extends Component {
           placeholder="$$$$"
           thousandSeparator={true}
           prefix={"$"}
+          onChange={this.sendData}
         />
       </React.Fragment>
     );
