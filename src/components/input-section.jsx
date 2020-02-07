@@ -3,12 +3,9 @@ import "../style/input.css";
 import NumberFormat from "react-number-format";
 
 class inputSection extends Component {
-  state = {
-    quantity: 0
-  };
 
-  sendData = () => {
-    this.props.parentCallback({ amount: this.state.quantity });
+  sendData = (e) => {
+    this.props.parentCallback({ amount: e.target.value.replace(/^\D+/g, '') });
   }
 
   render() {

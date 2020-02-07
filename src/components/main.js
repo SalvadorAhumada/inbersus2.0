@@ -27,8 +27,7 @@ const MainPage = () => {
   });
 
   const callbackFunction = (childData) => {
-    console.log('childDta', childData);
-    setAmountState({ amount: childData })
+    setAmountState({ amount: childData.amount })
   };
 
   return (
