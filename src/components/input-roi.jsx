@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../style/input.css";
 import NumberFormat from "react-number-format";
 
-class inputSection extends Component {
+class roiSelection extends Component {
   state = {
     quantity: 0
   };
@@ -12,13 +12,13 @@ class inputSection extends Component {
       <React.Fragment>
         <NumberFormat
           value={this.state.quantity == 0 ? null : this.state.quantity}
-          placeholder="$"
-          thousandSeparator={true}
-          prefix={"$"}
+          placeholder="%"
+          thousandSeparator={false}
+          suffix={"%"}
         />
       </React.Fragment>
     );
   }
 }
 
-export default inputSection;
+export default roiSelection;

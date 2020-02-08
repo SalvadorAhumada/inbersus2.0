@@ -2,6 +2,7 @@ import React from "react";
 import "../style/general.css";
 import InputSection from "./input-section";
 import InputDate from "./input-date";
+import InputROI from "./input-roi";
 
 const mainPage = () => {
   return (
@@ -12,8 +13,10 @@ const mainPage = () => {
       <p>2.-Choose how long your investment is going to be</p>
       <InputDate />
       <p>3.-Choose the ROI</p>
-      {/* <InputROI /> */}
-      <button>Make it rain</button>
+      <InputROI />
+      <p>
+        <button>Make it rain</button>
+      </p>
     </section>
   );
 };
