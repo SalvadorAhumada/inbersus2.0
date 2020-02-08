@@ -3,8 +3,8 @@ import "../style/input.css";
 import NumberFormat from "react-number-format";
 
 class inputSection extends Component {
-  state = {
-    quantity: 0
+  sendData = e => {
+    this.props.parentCallback({ amount: e.target.value.replace(/^\D+/g, "") });
   };
 
   render() {
@@ -15,6 +15,7 @@ class inputSection extends Component {
           placeholder="$"
           thousandSeparator={true}
           prefix={"$"}
+          onChange={this.sendData}
         />
       </React.Fragment>
     );
