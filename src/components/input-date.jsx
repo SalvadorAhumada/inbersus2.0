@@ -9,6 +9,7 @@ class inputSection extends Component {
 
   handleDate = y => {
     this.setState({ selectedYear: y });
+    this.props.timeCallback({ year: y });
   };
 
   render() {
