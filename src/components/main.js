@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../style/general.css";
 import InputSection from "./input-section";
 import InputDate from "./input-date";
 import InputROI from "./input-roi";
+import loading from "../assets/loading.gif";
 
 const MainPage = () => {
   // State -------------------------------------------------------------
@@ -42,7 +43,9 @@ const MainPage = () => {
     )
       return;
 
-    console.log("continue");
+    setClassState({
+      isAdded: true
+    });
   };
 
   const callbackFunction = childData => {
@@ -59,67 +62,81 @@ const MainPage = () => {
 
   // Component --------------------------------------------------------
 
-  return (
-    <section
-      className={
-        "center text-big margin-0 animated " +
-        (setClass.isAdded ? "fadeOutUp" : "fadeIn")
-      }
-    >
-      <h1 className="margin-0">INBERSUS</h1>
-      <p>1.-Choose how much you want to invest.</p>
-      <InputSection parentCallback={callbackFunction} />
-      <sup
+  if (setClass.isAdded === false)
+    return (
+      <section style={{ textAlign: "center" }} className="animated fadeIn">
+        <h1 className="margin-0">INBERSUS</h1>
+        <p>1.-Choose how much you want to invest.</p>
+        <InputSection parentCallback={callbackFunction} />
+        <sup
+          style={{
+            display:
+              (amountState.amount === 0 || isNaN(amountState.amount)) &&
+              warningState.warning === true
+                ? "block"
+                : "none",
+            fontSize: "12px",
+            marginTop: "4px",
+            color: "#e30000"
+          }}
+        >
+          Amount can't be 0
+        </sup>
+        <p>2.-Choose how long your investment is going to be</p>
+        <InputDate timeCallback={timeFunction} />
+        <sup
+          style={{
+            display:
+              (yearsState.years === 0 || isNaN(yearsState.years)) &&
+              warningState.warning === true
+                ? "block"
+                : "none",
+            fontSize: "12px",
+            marginTop: "4px",
+            color: "#e30000"
+          }}
+        >
+          Must select a year
+        </sup>
+        <p>3.-Choose the ROI</p>
+        <InputROI roiCallback={roiFunction} />
+        <sup
+          style={{
+            display:
+              (roiState.roi === 0 || isNaN(roiState.roi)) &&
+              warningState.warning === true
+                ? "block"
+                : "none",
+            fontSize: "12px",
+            marginTop: "4px",
+            color: "#e30000"
+          }}
+        >
+          ROI can't be 0
+        </sup>
+        <p>
+          <button onClick={addClassHandler}>Make it rain</button>
+        </p>
+      </section>
+    );
+  else
+    return (
+      <div
         style={{
-          display:
-            (amountState.amount === 0 || isNaN(amountState.amount)) &&
-            warningState.warning === true
-              ? "block"
-              : "none",
-          fontSize: "12px",
-          marginTop: "4px",
-          color: "#e30000"
+          position: "fixed",
+          top: "0",
+          left: "0",
+          right: "0",
+          bottom: "0",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: "2"
         }}
       >
-        Amount can't be 0
-      </sup>
-      <p>2.-Choose how long your investment is going to be</p>
-      <InputDate timeCallback={timeFunction} />
-      <sup
-        style={{
-          display:
-            (yearsState.years === 0 || isNaN(yearsState.years)) &&
-            warningState.warning === true
-              ? "block"
-              : "none",
-          fontSize: "12px",
-          marginTop: "4px",
-          color: "#e30000"
-        }}
-      >
-        Must select a year
-      </sup>
-      <p>3.-Choose the ROI</p>
-      <InputROI roiCallback={roiFunction} />
-      <sup
-        style={{
-          display:
-            (roiState.roi === 0 || isNaN(roiState.roi)) &&
-            warningState.warning === true
-              ? "block"
-              : "none",
-          fontSize: "12px",
-          marginTop: "4px",
-          color: "#e30000"
-        }}
-      >
-        ROI can't be 0
-      </sup>
-      <p>
-        <button onClick={addClassHandler}>Make it rain</button>
-      </p>
-    </section>
-  );
+        <img src={loading} />
+      </div>
+    );
 };
 
 export default MainPage;
