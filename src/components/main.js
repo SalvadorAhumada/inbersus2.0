@@ -11,6 +11,14 @@ const MainPage = () => {
     isAdded: false
   });
 
+  const [setResult, setResultState] = useState({
+    result: false
+  });
+
+  const [finalInvestment, setFinalInvestment] = useState({
+    investment: 0
+  });
+
   const [amountState, setAmountState] = useState({
     amount: 0
   });
@@ -46,7 +54,43 @@ const MainPage = () => {
     setClassState({
       isAdded: true
     });
+
+    let roi = 1 + roiState.roi / 12 / 100;
+
+    const years = yearsState.years * 12;
+
+    let initial = amountState.amount;
+
+    for (let i = 0; i < years; i++) {
+      initial = initial * roi;
+      console.log("month " + i);
+      console.log(roi);
+      console.log(initial);
+    }
+
+    const investment = initial;
+
+    setFinalInvestment({
+      investment
+    });
+
+    setTimeout(() => {
+      setResultState({
+        result: true
+      });
+    }, 1000);
+
+    setTimeout(() => {
+      setClassState({
+        isAdded: false
+      });
+    }, 1500);
   };
+
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD"
+  });
 
   const callbackFunction = childData => {
     setAmountState({ amount: childData.amount });
@@ -62,10 +106,10 @@ const MainPage = () => {
 
   // Component --------------------------------------------------------
 
-  if (setClass.isAdded === false)
+  if (setClass.isAdded === false && setResult.result === false)
     return (
       <section style={{ textAlign: "center" }} className="animated fadeIn">
-        <h1 className="margin-0">INBERSUS</h1>
+        <h1>INBERSUS</h1>
         <p>1.-Choose how much you want to invest.</p>
         <InputSection parentCallback={callbackFunction} />
         <sup
@@ -119,7 +163,7 @@ const MainPage = () => {
         </p>
       </section>
     );
-  else
+  else if (setClass.isAdded === true && setResult.result === false)
     return (
       <div
         style={{
@@ -134,8 +178,19 @@ const MainPage = () => {
           zIndex: "2"
         }}
       >
-        <img src={loading} />
+        <img src={loading} alt="Loading" />
       </div>
+    );
+  else
+    return (
+      <section>
+        <h1 className="results">
+          Wow, your initial investment of {formatter.format(amountState.amount)}{" "}
+          will turn into {formatter.format(finalInvestment.investment)} after{" "}
+          {yearsState.years} years!
+        </h1>
+        <p>Check this super rad table for yearly results!:</p>
+      </section>
     );
 };
 

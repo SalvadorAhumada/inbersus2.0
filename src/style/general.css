@@ -12,10 +12,21 @@ body {
   font-size: 1.5rem;
 }
 
-.margin-0 {
-  margin: 0;
-}
-
 h1 {
   color: #3a3a3a;
+  margin-top: 50px;
+}
+
+.results {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+}
+
+p {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
 }
