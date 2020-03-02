@@ -54,3 +54,8 @@ table tr:nth-child(2n) {
   background: #888;
   color: white;
 }
+
+.table-results {
+  max-height: 75vh;
+  overflow-y: auto;
+}

@@ -183,7 +183,7 @@ const MainPage = () => {
     );
   else
     return (
-      <section>
+      <section className="animated fadeIn">
         <h1 className="results">
           Wow, your initial investment of {formatter.format(amountState.amount)}{" "}
           will turn into{" "}
@@ -192,17 +192,19 @@ const MainPage = () => {
           )}{" "}
           after {yearsState.years} years!
         </h1>
-        <p>Check this super rad table for yearly results!:</p>
-        <table>
-          {finalInvestment.investment.map((month, index) => {
-            return (
-              <tr key={index}>
-                <td>{`month ${index + 1}`}</td>
-                <td>{`$${month}`}</td>
-              </tr>
-            );
-          })}
-        </table>
+        <p>Check this super rad table for monthly results!:</p>
+        <div className="table-results">
+          <table className="animated bounceInUp">
+            {finalInvestment.investment.map((month, index) => {
+              return (
+                <tr key={index}>
+                  <td>{`month ${index + 1}`}</td>
+                  <td>{`$${month}`}</td>
+                </tr>
+              );
+            })}
+          </table>
+        </div>
       </section>
     );
 };
