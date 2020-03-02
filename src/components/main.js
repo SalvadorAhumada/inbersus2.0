@@ -61,14 +61,14 @@ const MainPage = () => {
 
     let initial = amountState.amount;
 
+    let total = [];
+
     for (let i = 0; i < years; i++) {
       initial = initial * roi;
-      console.log("month " + i);
-      console.log(roi);
-      console.log(initial);
+      total.push(initial.toFixed(2));
     }
 
-    const investment = initial;
+    const investment = total;
 
     setFinalInvestment({
       investment
@@ -186,10 +186,23 @@ const MainPage = () => {
       <section>
         <h1 className="results">
           Wow, your initial investment of {formatter.format(amountState.amount)}{" "}
-          will turn into {formatter.format(finalInvestment.investment)} after{" "}
-          {yearsState.years} years!
+          will turn into{" "}
+          {formatter.format(
+            finalInvestment.investment[finalInvestment.investment.length - 1]
+          )}{" "}
+          after {yearsState.years} years!
         </h1>
         <p>Check this super rad table for yearly results!:</p>
+        <table>
+          {finalInvestment.investment.map((month, index) => {
+            return (
+              <tr key={index}>
+                <td>{`month ${index + 1}`}</td>
+                <td>{`$${month}`}</td>
+              </tr>
+            );
+          })}
+        </table>
       </section>
     );
 };

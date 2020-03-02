@@ -3,7 +3,7 @@ import "../style/date.css";
 
 class inputSection extends Component {
   state = {
-    years: [1, 3, 5, 10, 15, 20, 25, 30, 40, 50],
+    years: [1, 3, 5, 10, 15, 20, 25, 30, 40],
     selectedYear: null
   };
 
