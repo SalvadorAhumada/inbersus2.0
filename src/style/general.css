@@ -98,3 +98,18 @@ p.about a:visited {
 #root {
   height: 100%;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  font-size: 12px;
+  width: 100%;
+  margin: 0;
+  left: 0;
+}
+
+@media only screen and (max-width: 576px) {
+  section.main {
+    width: 90%;
+  }
+}

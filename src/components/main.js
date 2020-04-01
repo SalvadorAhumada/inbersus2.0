@@ -170,6 +170,12 @@ const MainPage = () => {
         <p>
           <button onClick={addClassHandler}>Make it rain</button>
         </p>
+        <div className="footer">
+          <a href="https://picspree.com/en/photos/money-money-moneeeeeeeey-140096">
+            Money Money Moneeeeeeeey
+          </a>{" "}
+          on <a href="https://www.picspree.com">Picspree</a>
+        </div>
       </section>
     );
   else if (setClass.isAdded === true && setResult.result === false)
