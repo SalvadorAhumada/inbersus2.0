@@ -7,18 +7,17 @@ input {
   width: 150px;
   text-align: center;
   font-family: "Rubik", sans-serif;
-  margin-top: 30px;
 }
 
 button {
   padding: 15px 25px;
   border-radius: 100px;
   border: none;
-  font-weight: bolder;
-  background: #4545ff;
+  background: #bfae48;
+  letter-spacing: 5px;
   color: white;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 1px;
   font-family: "Rubik", sans-serif;
   transition: 0.5s;
@@ -26,6 +25,6 @@ button {
 }
 
 button:hover {
-  background: #3434c3;
+  background: rgb(194, 171, 42);
   transition: 0.5s;
 }

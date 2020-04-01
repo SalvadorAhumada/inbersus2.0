@@ -108,8 +108,17 @@ const MainPage = () => {
 
   if (setClass.isAdded === false && setResult.result === false)
     return (
-      <section style={{ textAlign: "center" }} className="animated fadeIn">
-        <h1>INBERSUS</h1>
+      <section style={{ textAlign: "center" }} className="animated fadeIn main">
+        <p className="about">
+          <a
+            href="https://salvadorahumada.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            About the author
+          </a>
+        </p>
+        <h1>iNBERSUS</h1>
         <p>1.-Choose how much you want to invest.</p>
         <InputSection parentCallback={callbackFunction} />
         <sup
@@ -178,21 +187,27 @@ const MainPage = () => {
           zIndex: "2"
         }}
       >
-        <img src={loading} alt="Loading" />
+        <img
+          style={{ border: "2px solid black" }}
+          src={loading}
+          alt="Loading"
+        />
       </div>
     );
   else
     return (
       <section className="animated fadeIn">
-        <h1 className="results">
+        <h2 className="results">
           Wow, your initial investment of {formatter.format(amountState.amount)}{" "}
           will turn into{" "}
           {formatter.format(
             finalInvestment.investment[finalInvestment.investment.length - 1]
           )}{" "}
           after {yearsState.years} years!
-        </h1>
-        <p>Check this super rad table for monthly results!:</p>
+        </h2>
+        <p style={{ fontWeight: "bolder" }}>
+          Check this super rad table for monthly results!:
+        </p>
         <div className="table-results">
           <table className="animated bounceInUp">
             {finalInvestment.investment.map((month, index) => {
