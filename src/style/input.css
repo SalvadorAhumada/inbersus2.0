@@ -8,23 +8,3 @@ input {
   text-align: center;
   font-family: "Rubik", sans-serif;
 }
-
-button {
-  padding: 15px 25px;
-  border-radius: 100px;
-  border: none;
-  background: #bfae48;
-  letter-spacing: 5px;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-  letter-spacing: 1px;
-  font-family: "Rubik", sans-serif;
-  transition: 0.5s;
-  margin-top: 20px;
-}
-
-button:hover {
-  background: rgb(194, 171, 42);
-  transition: 0.5s;
-}
