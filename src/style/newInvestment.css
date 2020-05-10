@@ -1,0 +1,23 @@
+.add_new {
+    width: 50px;
+    color: white;
+    background-color: #7D98A1;
+    margin:0 auto;
+    border-radius: 30px;
+    cursor: pointer;
+    transition:0.3s;
+}
+
+.add_new:hover {
+    transform: scale(1.1,1.1);
+    transition:0.3s;
+}
+
+.add_new i {
+    padding: 13px;
+}
+
+.dropdown_options {
+    width: 200px;
+    font-weight: bolder;
+}

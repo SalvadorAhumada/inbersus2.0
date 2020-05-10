@@ -8,14 +8,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0000007a;
+  background:#000000bf;
 }
 
 .welcome_modal {
   background-color: #596869;
   color: #f5f9e9;
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
   width: 400px;
   box-shadow: 8px 8px 4px #00000017;
+  position: relative;
+  padding-top:10px;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 10px;
+  background: #37463c;
+  border-radius: 0 0 5px 5px;
 }

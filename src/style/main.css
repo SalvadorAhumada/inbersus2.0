@@ -1,0 +1,19 @@
+.first_step {
+    background: #596869;
+    width: 80%;
+    margin: 20px auto;
+    color:white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.options_wrapper {
+    display:flex;
+    justify-content: space-around;
+    margin:10px;
+}
+
+.option {
+    cursor: pointer;
+}
