@@ -1,0 +1,32 @@
+.options_investment {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.options_investment img {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.selected_option {
+    border: 5px solid #ACC18A!important;
+}
+
+.welcome_modal p span {
+    font-weight: bolder;
+}
+
+.options_investment img:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+
+.options_investment div {
+    cursor: pointer;
+}

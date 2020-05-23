@@ -3,39 +3,51 @@ import { Animated } from "react-animated-css";
 import "../style/newInvestment.css";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import NumberFormat from "react-number-format";
 
 const NewInvestements = (props) => {
 
-    const [newInvestment, setInvestment] = useState(false);
+    const [visible, setVisible] = useState(true);
 
-    const _onSelect = () => {
-        console.log('selected')
+    const onSelect = e => {
+        props.setOptionCallback(e.value, props.index)
+    }
+    const closeInvestment = () => {
+        setVisible(false);
+        setTimeout(() => {
+            props.deleteCallback(props.index);
+        }, 700);
     }
 
-    const options = [
-        'Prestadero', 'Piggo', 'Kueski', 'GBMHomebroker'
-    ];
+    const sendData = e => {
+        console.log(e.target.value.replace(/^\D+/g, "").slice(0, e.target.value.length - 1))
+    }
 
-    /*const create = <div className="first_step center">
-        {props.options.map((option, index) =>
-            <li key={index}>{option.name}</li>
-        )}
-    </div>
-
-    const AddNew = <div className="first_step center">
-        Add
-        </div>
-
-    const investment = newInvestment ? create : AddNew*/
+    const investment = props.selectedOption ? <div className="body-container">
+        <p> Inversion inicial</p>
+        <NumberFormat
+            placeholder="Max. $199 999"
+            prefix={"$"}
+            onChange={sendData}
+            format={'$ ### ###'}
+        />
+    </div> : <div style={{ position: "relative" }}></div>
 
     return (
-        <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
+        <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={visible}>
+
             <div className="first_step center">
-                <Dropdown className='dropdown_options' options={options} onChange={_onSelect} placeholder="Select an option" />
+
+                <i className="material-icons close" onClick={closeInvestment}>close</i>
+
+                <div className="header-container">
+                    {investment}
+                </div>
+                <div className="options-container">
+                    <p>Opciones extras:</p>
+                </div>
             </div>
-            <div className="add_new center">
-                <i className="large material-icons">add</i>
-            </div>
+
         </Animated>
     );
 };

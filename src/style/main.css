@@ -6,6 +6,18 @@
     padding: 10px;
     border-radius: 5px;
     font-size: 0.9rem;
+    height:300px;
+    position: relative;
+}
+
+.intro {
+    background: #596869;
+    width: 80%;
+    margin: 20px auto;
+    color:white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
 }
 
 .options_wrapper {
@@ -16,4 +28,9 @@
 
 .option {
     cursor: pointer;
+}
+
+.main {
+    max-width: 1000px;
+    margin: 0 auto;
 }
