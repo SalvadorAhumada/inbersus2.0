@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Table from "./table";
+import Charts from "./Charts.jsx";
 import { ReactComponent as Logo } from "./logo.svg";
 import { Animated } from "react-animated-css";
 
@@ -14,7 +15,8 @@ class Main extends Component {
             show_result: false,
             results: [],
             warning: false,
-            loading: false
+            loading: false,
+            type: "table",
         };
     }
 
@@ -68,6 +70,24 @@ class Main extends Component {
         document.getElementById("time_dropdown").selectedIndex = 0;
     }
 
+    getColor(type) {
+        if (type === 1 && this.state.type === "table")
+            return "bolder";
+        if (type === 2 && this.state.type === "chart")
+            return "bolder";
+
+        return "normal";
+    }
+
+    setOption = () => {
+        let type;
+        this.state.type === "table" ? type = "chart" : type = "table"
+
+        this.setState({
+            type
+        });
+    }
+
     calculateInvestment() {
         let option = document.getElementById("time_dropdown");
         let selected_time = option.options[option.selectedIndex].value;
@@ -104,7 +124,8 @@ class Main extends Component {
             interest: 0,
             investment: 0,
             monthly: 0,
-            warning: false
+            warning: false,
+            loading: false
         });
     }
 
@@ -116,12 +137,18 @@ class Main extends Component {
         ) : (
                 " "
             );
+
+        let chartOrTable = this.state.type === "table" ? <Table
+            results={this.state.results}
+            redo={() => this.redo()}
+            loadingState={() => this.setLoading()}
+        /> : <Charts chartDate={this.state.results} />
+
         let table = this.state.show_result ? (
-            <Table
-                results={this.state.results}
-                redo={() => this.redo()}
-                loadingState={() => this.setLoading()}
-            />
+            <React.Fragment>
+                <div className="button-selection"><button onClick={this.setOption} style={{ fontWeight: this.getColor(1) }}>Tabla</button><button onClick={this.setOption} style={{ fontWeight: this.getColor(2) }}>Grafica</button></div>
+                {chartOrTable}
+            </React.Fragment>
         ) : (
                 " "
             );

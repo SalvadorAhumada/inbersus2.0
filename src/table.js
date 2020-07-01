@@ -17,19 +17,19 @@ export default function Table(props) {
             props.loadingState();
         }, 0);
 
-        let header = document.getElementById("inline-table");
-        let fixed = document.getElementById("fix-table");
-        window.addEventListener("scroll", function (e) {
-            if (window.scrollY - 500 > header.getBoundingClientRect().top) {
-                fixed.style.display = "inline";
-                fixed.style.position = "fixed";
-                fixed.style.top = "0";
-                fixed.style.left = "50%";
-                fixed.style.transform = "translate(-50%,0)";
-            } else {
-                fixed.style.display = "none";
-            }
-        });
+        // let header = document.getElementById("inline-table");
+        // let fixed = document.getElementById("fix-table");
+        // window.addEventListener("scroll", function (e) {
+        //     if (window.scrollY - 500 > header.getBoundingClientRect().top) {
+        //         fixed.style.display = "inline";
+        //         fixed.style.position = "fixed";
+        //         fixed.style.top = "0";
+        //         fixed.style.left = "50%";
+        //         fixed.style.transform = "translate(-50%,0)";
+        //     } else {
+        //         fixed.style.display = "none";
+        //     }
+        // });
     });
 
     const downloadTable = () => {
@@ -57,7 +57,7 @@ export default function Table(props) {
 
     return (
         <div className="table-wrapper">
-            <table>
+            {/* <table>
                 <thead id="fix-table">
                     <tr className="head">
                         <th>Año</th>
@@ -67,7 +67,7 @@ export default function Table(props) {
                         <th>Retorno</th>
                     </tr>
                 </thead>
-            </table>
+            </table> */}
             <table id="download-table">
                 <thead id="inline-table">
                     <tr className="head">
