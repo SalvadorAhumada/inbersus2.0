@@ -95,10 +95,6 @@ table {
   background: #0032613a;
 }
 
-table#download-table {
-  margin-bottom: 50px;
-}
-
 table#download-table tbody.body tr:nth-child(odd) {
   background: #0032614b;
 }

@@ -114,8 +114,13 @@ class Main extends Component {
             }
         }
 
+        let monthNo = 1;
+        let year = 0;
+
         for (let element in total) {
-            totalArray.push({ month: total[element] });
+            totalArray.push({ month: total[element], monthNo, year });
+            monthNo++;
+            if (monthNo % 12 === 0) year++
         }
 
         this.setState({
@@ -146,7 +151,7 @@ class Main extends Component {
 
         let table = this.state.show_result ? (
             <React.Fragment>
-                <div className="button-selection"><button onClick={this.setOption} style={{ fontWeight: this.getColor(1) }}>Tabla</button><button onClick={this.setOption} style={{ fontWeight: this.getColor(2) }}>Grafica</button></div>
+                <div className="button-selection"><button onClick={this.setOption} style={{ fontWeight: this.getColor(1) }}>Tabla</button><button onClick={this.setOption} style={{ fontWeight: this.getColor(2) }}>Gráfica</button></div>
                 {chartOrTable}
             </React.Fragment>
         ) : (

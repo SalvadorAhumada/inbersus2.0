@@ -10,7 +10,18 @@ export default function Table(props) {
         return numberFormat.format(number);
     };
 
+    const [start, setStart] = useState(0);
+
+    const [end, setEnd] = useState(12);
+
+    const [currentYear, setCurrentYear] = useState(1);
+
     const [animation, setAnimation] = useState(true);
+
+    const tablePagination = () => {
+        let currentPage = props.results.slice(start, end);
+        return currentPage;
+    }
 
     useEffect(() => {
         setTimeout(() => {
@@ -71,7 +82,7 @@ export default function Table(props) {
             <table id="download-table">
                 <thead id="inline-table">
                     <tr className="head">
-                        <th>Año</th>
+                        {/* <th>Año</th> */}
                         <th>Mes</th>
                         <th>Cantidad ahorrada</th>
                         <th>Inversion Total</th>
@@ -79,10 +90,10 @@ export default function Table(props) {
                     </tr>
                 </thead>
                 <tbody className="body">
-                    {props.results.map((month, index) => (
+                    {tablePagination().map((month, index) => (
                         <tr key={index}>
-                            <th>{(index + 1) % 12 === 0 ? `${(index + 1) / 12}` : ""}</th>
-                            <th>{index + 1}</th>
+                            {/* <th>{month.monthNo % 12 === 0 ? month.year : ''}</th> */}
+                            <th>{month.monthNo}</th>
                             <th>{formatNumber(month.month.savings)}</th>
                             <th>{formatNumber(month.month.investment)}</th>
                             <th>
@@ -91,8 +102,8 @@ export default function Table(props) {
                         </tr>
                     ))}
                 </tbody>
-        ;
-      </table>
+            </table>
+            <div class="controllers"> prev Año {currentYear} next </div>
             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={isVisible()}>
                 <div className="download">
                     <button onClick={redoInvestment}>
