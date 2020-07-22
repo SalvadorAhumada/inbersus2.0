@@ -1,0 +1,6 @@
+[ DEPLOYING TO HEROKU]
+
+[ 1 ]
+    - Check out NPM and Node Versions
+    - Add engines in our package.json
+    - PUSH-
