@@ -218,7 +218,7 @@ class Main extends Component {
             />
             <span>%</span>
           </p>
-          <p>(Opcional) Deposito mensual.</p>
+          <p>(Opcional) Déposito mensual.</p>
           <p className="monthly">
             <span>$ &nbsp;</span>
             <input

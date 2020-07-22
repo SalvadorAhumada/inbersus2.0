@@ -76,7 +76,7 @@ export default function Table(props) {
           <tr>
             <th>Mes</th>
             <th>Cantidad ahorrada</th>
-            <th>Inversion Total</th>
+            <th>Inversión Total</th>
             <th>Retorno</th>
           </tr>
         </thead>
